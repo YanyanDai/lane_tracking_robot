@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <node name = "serial_node" pkg="rosserial_python" type = "serial_node.py" args="/dev/ttyACM0" output = "screen">
+    </node>
+    
+    <include file="$(find jetson_csi_cam)/jetson_csi_cam.launch">
+    </include>
+
+    <node name="lane_tracking_robot" pkg="lane_tracking_robot" type="lane_tracking_robot.py" output="screen">
+    </node>
+
+</launch>
